@@ -2,8 +2,10 @@
 
 CURDATE=`date +%Y%m%d`
 INDEX=1
+FILE=$1
+FILE=`echo ${FILE} | sed -e s/'\/$'//`
 
-if [ -z $1 ]; then
+if [ -z ${FILE} ]; then
         echo "Backup file/directory to file-$CURDATE$INDEX"
         exit 0
 fi
@@ -14,9 +16,9 @@ fi
 
 INDEX=1
 while [ $INDEX -gt 0 ]; do
-        if [ ! -e $1-$CURDATE$INDEX ] ; then
-                echo $1-$CURDATE$INDEX
-                cp -a $1 $1-$CURDATE$INDEX
+        if [ ! -e ${FILE}-$CURDATE$INDEX ] ; then
+                echo ${FILE}-$CURDATE$INDEX
+                cp -a ${FILE} ${FILE}-$CURDATE$INDEX
                 INDEX=0
         else
                 INDEX=`echo $INDEX+1 | bc`
