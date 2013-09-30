@@ -11,7 +11,7 @@ After you clone the repo, just do `make` and it will copy the script to /usr/loc
 ## Usage
 Let's say you want to edit you httpd.conf, but before that, you need to create a backup version of the file.
 
- backup /etc/apache2/httpd.conf
- $EDITOR /etc/apache2/httpd.conf
+	backup /etc/apache2/httpd.conf
+	$EDITOR /etc/apache2/httpd.conf
 
 That way, you have a backup copy named /etc/apache2/httpd.conf-201310301. The 201310301 translates to 2013-September-30 version 1. The version number is auto-increment.
